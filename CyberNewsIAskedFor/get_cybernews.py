@@ -2,9 +2,6 @@ from cybernews.cybernews import CyberNews
 import cybernews 
 import fontstyle
 
-
-
-# print(dir(report))
 # -----------------------------------------------------------
 # this gives out list it seems ~TypeError: list indices must be integers or slices, not str
 def _select_category(category):
@@ -13,18 +10,8 @@ def _select_category(category):
     _categoryContent = news.get_news(category)
     return _categoryContent
 # -----------------------------------------------------------
-# figured out, That the .json is listed. 
-# before accessing .json, index to that particular .json
-# print(_categoryContent[0].get('headlines')) [ {.json}, {.json} ,{.json} ...]
 # -----------------------------------------------------------
-# This much NEWS is sent under the specified category
-# print(len(_categoryContent))
 # -----------------------------------------------------------
-# 30 Headlines 
-# 31 Headlines More
-# this list headlines of all the news under that particular news category.
-# for title in range(len(_categoryContent)):
-#     print(f"{title + 1} {_categoryContent[title].get('headlines')}")
 # -----------------------------------------------------------
 # list of possible news categories
 '''
@@ -44,25 +31,6 @@ def _select_category(category):
 | 14 | Corporate News | news.get_news("corporate") |
 | 15 | Social Media News | news.get_news("socialMedia") |
 '''
-# ----------------------------------------------------------------------------
-# # ? Ser.NO  DataOfNews  News-HeadLines  >> also it Prints the content in BLUE color
-# var = select_category("security")
-# print(type(var))
-# for title in range(len(var)):
-#     print(fontstyle.apply(f"{title + 1} On {var[title].get('newsDate')}, {var[title].get('fullNews')}",'bold/Italic/blue' ))
-# ----------------------------------------------------------------------------
-
-
-# ----------------------------------------------------------------------------
-# # ? Ser.NO  DataOfNews  News-HeadLines  >> also it Prints the content in BLUE color
-# securityNews = _select_category("security")
-# # print(type(var))
-# for news in securityNews:
-#     print(fontstyle.apply(f" On {news.get('newsDate')}, {news.get('headlines')}",'bold/Italic/blue' ))
-#     print("\n")
-# ----------------------------------------------------------------------------
-
-
 # =================================================================================
 # all from perticular categories
 # def print_all_contents_of(this,fromThis,withColor="blue"):
@@ -83,13 +51,6 @@ def print_all_contents_of(this,fromThis,withColor="blue"):
     for serial,news in enumerate(_newsContent):
         print(fontstyle.apply(f"{serial + 1} {news.get(this)}",f'bold/{withColor}' ))
 # =================================================================================
-
-# '/news/cybercrime-fraud/ {lockbit-ransomware-gang-hits-indias-national-aerospace-laboratories} /105579299'
-# _categoryContent[index].get('newsURL')
-# simple code to strip TITLE
-# def get_title(newsURL):
-#     print(newsURL.split("/")[2])
-# later dropped idea because, not every time the URL like this vague.
 
 # =================================================================================
 # this based on the category prints either latest or Top Five News.
@@ -136,10 +97,31 @@ def print_news_from(category,latest=True):
                     """)
 # =================================================================================
 
-
 # =================================================================================
+def menu():
+    print(f"""
+    CYBERNEWS~ 
+           select category:
+    1. cyberAttack      5. security
+    2. vulenrability    6. general
+    3. tech             7. business
+    4. malware          8. research
+    {fontstyle.apply('note: by default latest news will be displayed.','FAINT/ITALIC')}
+        """)
+def switcher(option):
+    cat = {
+        1 : 'cyberAttack',
+        2 : 'vulnerability',
+        3 : 'tech',
+        4 : 'malware',
+        5 : 'security',
+        6 : 'general',
+        7 : 'business',
+        8 : 'research'
+    }
+    return cat.get(option)
+#============================================================================
 # program starts here..
-
 """
 FUTURE SCOPE:
 One Major improvement can be, not to ask any category and all, 
@@ -152,5 +134,43 @@ THE LATEST cybernews, from ANY CATEGORY !! (__Automatically, Not even have to En
 """
 if __name__ == "__main__":
     # print_all_contents_of("headlines",fromThis="security",withColor="red")
-
-    print_news_from('malware',latest=True)
+    ERR = 'RED/ITALIC'
+    PRM = 'BLACK/GRAY_BG'
+    menu()
+#============================================================================
+    while True:
+        try:
+            inQ = 'Category >>'
+            option = int(input(fontstyle.apply(inQ,PRM)))
+            break
+        except ValueError:
+            mes = 'NOT VALID!! Enter category number !! (example: 1)'
+            print(fontstyle.apply(mes,ERR))
+        except KeyboardInterrupt:
+            mes = '\n ..exited'
+            print(fontstyle.apply(mes,ERR))
+            exit(1)
+#============================================================================
+    try:
+        category = switcher(option)
+    except NameError:
+        mes = 'to use type >> python get_cybernews.py\n'
+        print(fontstyle.apply(mes,ERR))
+#============================================================================
+    inQ = f'Do You want TOP 5 news under \"{category}\" (yes or no) NCS >>'
+    srno = input(fontstyle.apply(inQ,PRM))
+    srno = srno.lower()
+    if srno == 'no' or srno == 'n':
+        flag = True # meaning Latest NEWS 
+    elif srno == 'yes' or srno == 'y':
+        flag = False # meaning TOP 5 NEWS
+    else:
+        mes = 'That was yes or no Question !!'
+        print(fontstyle.apply(mes,ERR))
+#============================================================================
+    try:
+        print_news_from(category,flag)
+    except:
+        mes = 'only put category/Option that was Mentioned, dont assume your own.'
+        print(fontstyle.apply(mes,ERR))
+#============================================================================
