@@ -1,4 +1,4 @@
-You just need 'report' file [case sensitive] with actuall nmap Report.
+# You just need 'report' file [case sensitive] with actuall nmap Report preferably nmap -A.
 
 usage:
 -------------------
