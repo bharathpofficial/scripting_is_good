@@ -1,0 +1,8 @@
+#!/bin/bash
+#give input file
+report=$1
+
+#taking out just the IP address and sorting it Kinda!!
+awk 'match($0, /[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/) {print substr($0, RSTART, RLENGTH)}' $report | sort | uniq | sort -n | tee -a IP_LIST
+
+

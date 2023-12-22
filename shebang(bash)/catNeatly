@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for i in {0..255}
+do
+	cat "file_$i"
+	echo "
+ 	
+	
+	"
+done

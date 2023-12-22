@@ -1,0 +1,6 @@
+#!/bin/bash
+IP=$1
+fileName="file_$(echo $IP | awk -F . '{print $4}')"
+touch "$fileName"
+cat report | grep -w $IP >> "$fileName"
+cat "$fileName"

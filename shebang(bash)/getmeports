@@ -1,0 +1,5 @@
+#!/bin/bash
+
+exfiltrateIP report
+automate IP_LIST
+catNeatly >> Ports_Report.txt
