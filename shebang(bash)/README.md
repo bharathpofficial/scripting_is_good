@@ -2,7 +2,8 @@
 
 usage:
 -------------------
-getmeports report |
+sudo nmap -A \<OPTIONS\>   | tee -a report  
+getmeports report
 -------------------
 wait for the Magic...
 
