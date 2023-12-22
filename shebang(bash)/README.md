@@ -1,8 +1,9 @@
-You just need 'report' file [case sensitive] with actuall nmap Report.
+# You just need 'report' file [case sensitive] with actuall nmap Report preferably nmap -A.
 
 usage:
 -------------------
-getmeports report |
+sudo nmap -A \<OPTIONS\>   | tee -a report  
+getmeports report
 -------------------
 wait for the Magic...
 
