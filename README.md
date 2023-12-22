@@ -6,7 +6,8 @@
   
   script that provides CYBERNEWS latest and Informative news, from various websites, check the module, could be helpful.
 
-*SimpleIDS*
+
+***SimpleIDS***
   _considering this to be the least layer or the bare minimum layer filtering the spamming IPs._
 
 ### bash scripts
