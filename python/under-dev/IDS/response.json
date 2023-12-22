@@ -1,0 +1,41 @@
+{
+    'Flag': 'Allow',
+
+    'IP': '49.205.197.139',
+
+    'User-Agent': 'python-requests/2.31.0',
+
+    'Timestamp': 1702032625,
+
+    'GEO': 'IN',
+
+    'Tags': ['dynamicip'],
+
+    'live': {
+        'karma': 400,
+
+        'good_karma': 400, 
+
+        'details': {
+
+            'DYNAMICIP': 1
+            
+            }
+        }
+}
+
+
+
+{
+    'Flag': 'Allow', 
+    'Reason': 'Non-Redisential', 
+    'IP': '12.44.216.98', 
+    'User-Agent': 'python-requests/2.31.0', 
+    'Timestamp': 1702041299, 
+    'GEO': 'US', 
+    'Tags': ['blizzard', 'organizations'], 
+    
+    'db': {
+        'Non-Residential': ['Blizzard Entertainment, Inc.']
+        }
+}
