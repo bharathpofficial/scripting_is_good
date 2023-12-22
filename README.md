@@ -11,6 +11,6 @@
   _considering this to be the least layer or the bare minimum layer filtering the spamming IPs._
 
 ### bash scripts
-****getmeports****
+***getmeports***
 _Simple script to filter out the IP_ADDR, ports from the nmap output file of a perticular target IP._
   
