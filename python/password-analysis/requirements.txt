@@ -1,0 +1,5 @@
+pathlib
+zxcvbn
+openpyxl
+pathlib
+argparse
