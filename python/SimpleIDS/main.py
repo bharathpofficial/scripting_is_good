@@ -29,9 +29,7 @@ class CheckThisIP:
 		raw = response.json()
 		# print(raw) # Testing Purpose
 		return raw
-	
 
-	# Test ip 49.205.197.139
 	def normalize(self):
 		"""used to make ease the work of typing loong get('')"""
 		self.raw = self.get_raw()
@@ -118,7 +116,6 @@ chkObj = CheckThisIP('91.92.249.48')
 # 	chkObj.isOk()
 # 122.170.10.21 fishy IP
 # 12.44.216.98  fishy IP
-# 43.153.78.101
 # requests.exceptions.JSONDecodeError  when IP is invalid
 # chkObj.printC()
 
